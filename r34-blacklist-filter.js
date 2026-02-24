@@ -10,8 +10,6 @@
     const Storage = window.R34Storage;
     const safeExec = window.R34SafeExec;
 
-    const tagDatabase = new Set();
-    
     class BlacklistManager {
         constructor() {
             this.blacklistedTags = new Set();
@@ -189,7 +187,7 @@
                 this.selectedIndex =
                     this.selectedIndex <= 0
                     ? this.suggestions.length - 1
-                : this.selectedIndex - 1;
+                    : this.selectedIndex - 1;
             }
             this.updateSelection();
         }
