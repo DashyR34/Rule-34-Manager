@@ -10,6 +10,8 @@
     const Storage = window.R34Storage;
     const safeExec = window.R34SafeExec;
 
+    const tagDatabase = new Set();
+    
     class BlacklistManager {
         constructor() {
             this.blacklistedTags = new Set();
