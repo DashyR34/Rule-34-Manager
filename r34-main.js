@@ -4,11 +4,10 @@
 // @version      2.14
 // @description  Full modular version with settings, infinite scroll preload, smart paginator
 // @match        https://rule34.xxx/*
-// @match        https://www.rule34.xxx/*
-// @require      [paste raw URL or file path to r34-storage.user.js]
-// @require      [r34-blacklist-filter.user.js]
-// @require      [r34-preview.user.js]
-// @require      [r34-ui.user.js]
+// @require      https://github.com/DashyR34/Rule-34-Manager/blob/main/r34-storage.js
+// @require      https://github.com/DashyR34/Rule-34-Manager/blob/main/r34-blacklist-filter.js
+// @require      https://github.com/DashyR34/Rule-34-Manager/blob/main/r34-preview.js
+// @require      https://github.com/DashyR34/Rule-34-Manager/blob/main/r34-ui.js
 // @run-at       document-start
 // ==/UserScript==
 
