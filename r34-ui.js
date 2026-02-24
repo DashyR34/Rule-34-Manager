@@ -13,7 +13,7 @@
     const BlacklistManager = window.R34BlacklistManager;
     const AutoComplete = window.R34AutoComplete;
 
-    class UIManager {class UIManager {
+    class UIManager {
         constructor(filterManager, blacklistManager) {
             this.filterManager = filterManager;
             this.blacklistManager = blacklistManager;
@@ -1527,7 +1527,7 @@
             document.body.appendChild(btn);
             this._closeButton = btn;
         }
-    }}
+    }
     
     window.R34UIManager = UIManager;
 })();
