@@ -1261,13 +1261,16 @@
         }
 
         movePaginator() {
-            const paginator = document.querySelector("#paginator");
-            const content = document.querySelector("#content");
-            if (paginator && content) {
-                content.parentNode.insertBefore(paginator, content);
-                paginator.querySelector('input[type="submit"]')?.remove();
-            }
-        }
+    const paginator = document.querySelector("#paginator");
+    const content = document.querySelector("#content");
+    if (paginator && content && content.parentNode) {
+        content.parentNode.insertBefore(paginator, content);
+        const submit = paginator.querySelector('input[type="submit"]');
+        if (submit) submit.remove();
+    } else {
+        console.warn("[R34 Manager] Paginator or content not found - skipping move");
+    }
+}
 
         adjustModalPosition(modal) {
             if (!modal) return;
