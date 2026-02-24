@@ -8,8 +8,10 @@
 // @grant        GM_registerMenuCommand
 // @grant        GM_log
 // @grant        GM_addValueChangeListener
-// @require      https://github.com/PRO-2684/GM_config/releases/download/v1.2.2/config.min.js
+// @require      https://greasyfork.org/scripts/373291-gm-config/code/GM_config.user.js
 // ==/UserScript==
+
+/* https://github.com/PRO-2684/GM_config/releases/download/v1.2.2/config.min.js */
 
 (function () {
     "use strict";
