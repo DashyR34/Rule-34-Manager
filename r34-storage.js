@@ -38,7 +38,50 @@
         }
     }
 
-    const Storage = { /* your full Storage object unchanged */ };
+    const Storage = {
+        cache: new Map(),
+        dirty: new Set(),
+        timer: null,
+
+        get: (key, defaultValue = null) => {
+            if (Storage.cache.has(key)) return Storage.cache.get(key);
+            try {
+                const raw = GM_getValue(key);
+                const value = raw !== undefined ? JSON.parse(raw) : defaultValue;
+                Storage.cache.set(key, value);
+                return value;
+            } catch (e) {
+                Storage.cache.set(key, defaultValue);
+                return defaultValue;
+            }
+        },
+
+        set: (key, value) => {
+            Storage.cache.set(key, value);
+            Storage.dirty.add(key);
+            Storage.debounceFlush();
+        },
+
+        debounceFlush() {
+            if (Storage.timer) clearTimeout(Storage.timer);
+            Storage.timer = setTimeout(Storage.flush, 180);
+        },
+
+        flush() {
+            for (let key of Storage.dirty) {
+                try {
+                    GM_setValue(key, JSON.stringify(Storage.cache.get(key)));
+                } catch (e) {}
+            }
+            Storage.dirty.clear();
+        },
+
+        delete: (key) => {
+            Storage.cache.delete(key);
+            Storage.dirty.delete(key);
+            GM_deleteValue(key);
+        }
+    };
 
     // Expose to other modules
     window.R34Storage = Storage;
